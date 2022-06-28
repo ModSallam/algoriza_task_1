@@ -1,6 +1,8 @@
 # algoriza_task1_onboarding_login_register_app
 
-A new Flutter project.
+A new Flutter project, Onboarding, Register, Login Screens for Algoriza Internship Task 1.
+
+Developed By Mohamed Essam Sallam
 
 ## Getting Started
 
