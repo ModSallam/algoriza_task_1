@@ -1,4 +1,6 @@
+import 'package:algoriza_task1_onboarding_login_register_app/presentation/theme/theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 class CustomButton extends StatelessWidget {
   final String text;
@@ -11,19 +13,21 @@ class CustomButton extends StatelessWidget {
   final Color buttonColor;
   final Color textColor;
   final Function() onPressed;
+  final bool isIconButton;
 
   const CustomButton({
     Key? key,
     required this.text,
     required this.height,
     required this.width,
-    required this.padding,
+    this.padding = 0.0,
     required this.radius,
     required this.fontSize,
     required this.fontWeight,
     required this.buttonColor,
     required this.textColor,
     required this.onPressed,
+    this.isIconButton = false,
   }) : super(key: key);
 
   @override
@@ -39,16 +43,35 @@ class CustomButton extends StatelessWidget {
         ),
         child: ElevatedButton(
           style: ElevatedButton.styleFrom(
-            primary: buttonColor,
+            shadowColor: MyColors.blue,
+            elevation: isIconButton ? 0 : 0,
+            primary: isIconButton ? MyColors.transparent : buttonColor,
+            shape: isIconButton
+                ? RoundedRectangleBorder(
+                    side: BorderSide(color: textColor, width: 1.5),
+                    borderRadius: BorderRadius.circular(6),
+                  )
+                : null,
           ),
           onPressed: onPressed,
-          child: Text(
-            text,
-            style: TextStyle(
-              fontSize: fontSize,
-              fontWeight: fontWeight,
-              color: textColor,
-            ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              if (isIconButton)
+                SvgPicture.asset(
+                  'assets/google.svg',
+                  width: 24,
+                ),
+              if (isIconButton) const SizedBox(width: 10.0),
+              Text(
+                text,
+                style: TextStyle(
+                  fontSize: fontSize,
+                  fontWeight: fontWeight,
+                  color: textColor,
+                ),
+              ),
+            ],
           ),
         ),
       ),

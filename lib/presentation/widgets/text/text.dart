@@ -10,8 +10,8 @@ class CustomText extends StatelessWidget {
     Key? key,
     required this.text,
     required this.color,
-    required this.fontSize,
-    required this.fontWeight,
+    this.fontSize = 14,
+    this.fontWeight = FontWeight.normal,
   }) : super(key: key);
 
   @override

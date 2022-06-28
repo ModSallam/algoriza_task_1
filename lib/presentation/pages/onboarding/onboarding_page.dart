@@ -31,8 +31,7 @@ class OnboardingPage extends StatelessWidget {
                         fontWeight: FontWeight.w500,
                         buttonColor: MyColors.secondaryColor,
                         textColor: MyColors.black,
-                        onPressed: () =>
-                            Navigator.pushNamed(context, '/login'),
+                        onPressed: () => Navigator.pushNamed(context, '/login'),
                       ),
                     ),
                   ],
@@ -76,7 +75,6 @@ class OnboardingPage extends StatelessWidget {
                   text: 'Get Started',
                   height: 70.0,
                   width: double.infinity,
-                  padding: 0.0,
                   radius: 10.0,
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
@@ -84,28 +82,14 @@ class OnboardingPage extends StatelessWidget {
                   textColor: MyColors.white,
                   onPressed: () => Navigator.pushNamed(context, '/login'),
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 20.0, bottom: 10.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      CustomText(
-                        text: 'Don\'t have an account?  ',
-                        color: MyColors.black,
-                        fontSize: 18.0,
-                        fontWeight: FontWeight.w600,
-                      ),
-                      GestureDetector(
-                        onTap: () => Navigator.pushNamed(context, '/register'),
-                        child: CustomText(
-                          text: 'Sign Up',
-                          color: MyColors.primaryColor,
-                          fontSize: 18.0,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                    ],
-                  ),
+                QuestionContainer(
+                  text: 'Don\'t have an account?',
+                  color: MyColors.black,
+                  fontWeight: FontWeight.w600,
+                  qusetionText: 'Sign Up',
+                  questionColor: MyColors.primaryColor,
+                  questionFontWeight: FontWeight.w600,
+                  onTap: () => Navigator.pushNamed(context, '/register'),
                 ),
               ],
             ),
